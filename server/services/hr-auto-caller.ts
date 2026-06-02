@@ -299,7 +299,7 @@ export class HRAutoCallerService {
 
       console.log(`Active phone numbers found: ${activePhoneNumbers.length}, using ${provider === 'plivo' ? 'Plivo number' : provider === 'elevenlabs-sip' || provider === 'openai-sip' ? 'SIP number' : 'default number'}`);
 
-      const phoneNumberId: string =
+      let phoneNumberId: string | null =
         activePhoneNumbers[0]?.id ??
         job.callingPhoneNumberId ??
         STATIC_TEST_NUMBER_ID;
